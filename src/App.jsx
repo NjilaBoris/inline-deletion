@@ -22,7 +22,6 @@ const App = () => {
     >
       <div className="relative  flex items-center justify-center w-full max-w-xs">
         <motion.button
-          layoutId="heading"
           whileHover={{ scale: 1.05 }}
           whileTap={{ scale: 0.95 }}
           style={{ opacity: isOpen ? 0 : 1 }}
@@ -46,10 +45,15 @@ const App = () => {
               ref={ref}
             >
               <motion.div
-                initial={{ opacity: 0 }}
-                animate={{ opacity: 1 }}
-                exit={{ opacity: 0 }}
-                transition={{ type: "spring", bounce: 0, duration: 0.3 }}
+                initial={{ opacity: 0, scale: 0.93 }}
+                animate={{ opacity: 1, scale: 1 }}
+                exit={{ opacity: 0, scale: 0 }}
+                transition={{
+                  type: "spring",
+                  bounce: 0,
+                  duration: 0.3,
+                  ease: [0.645, 0.045, 0.355, 1],
+                }}
                 layoutId="heading"
                 className="w-full flex flex-col items-center border border-neutral-300 shadow-md rounded-2xl bg-neutral-100 overflow-hidden"
               >
